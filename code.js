@@ -2,57 +2,32 @@
 //Maxie Machado 
 //QuickSort 
 
-function swap(array, first, second) 
+function swap(array, indexA, indexB) 
 {
-    let tmp = array[first];
-    array[first] = array[second];
-    array[second] = tmp;
-    return array;
+    let tmp = array[indexA];
+    array[indexA] = array[indexB];
+    array[indexB] = tmp;
 }
 
-function partition(array, low, hi) 
+function partition(array, leftBound, rightBound) 
 {
-    let pivot = low;
-    
-    for (let i = low + 1; i <= hi; i++)
-    {
-        if (array[i] < array[low])
-        {
-            swap(array, ++pivot, i);
-        }
-    }
-    swap(array, low, pivot);
-    return pivot;
-}
-
-function quicksort(array)
-{
-    if (array.length <= 1)
+    if (array.lngth < 2) 
     {
         return array;
     }
 
-    let stack = [];
-    stack.push(0);
-    stack.push(array.length - 1);
+    let boundaries = [[0, array.length - 1]] 
 
-    while (stack.length)
+    while (boundaries.length > 0)
     {
-        let hi = stack.pop();
-        let low = stack.pop();
+        let [low, high] = boundaries.pop();
 
-        let pivot = partition(array, low, hi);
-
-        if (pivot - 1 > low)
+        if (low < high) 
         {
-            stack.push(low);
-            stack.push(pivot - 1);
-        }
+            let pivotIndex = partition(array, low, high);
 
-        if (pivot + 1 < hi) 
-        {
-            stack.push(pivot + 1);
-            stack.push(hi);
+            boundaries.push([low, pivotIndex -1]);
+            boundaries.push([pivotIndex + 1, high]);
         }
     }
     return array;
