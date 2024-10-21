@@ -11,7 +11,7 @@ function swap(array, index1, index2)
 
 function partition(array, leftBound, rightBound) 
 {
-    const mid = Math.floor((leftBound + RightBound) /2);
+    const mid = Math.floor((leftBound + rightBound) /2);
     const pivotValue = array[mid];
 
     swap(array, mid, rightBound);
