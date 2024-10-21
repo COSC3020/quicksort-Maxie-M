@@ -29,7 +29,7 @@ function partition(array, leftBound, rightBound)
     return pivotIndex;
 }
 
-function quickSort(array)
+function quicksort(array)
 {
     if (array.length < 2) 
     {
