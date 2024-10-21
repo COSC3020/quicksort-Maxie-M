@@ -11,13 +11,13 @@ function swap(array, index1, index2)
 
 function partition(array, leftBound, rightBound) 
 {
-    const mid = Math.floor((start + end) /2);
+    const mid = Math.floor((leftBound + RightBound) /2);
     const pivotValue = array[mid];
 
-    swap(array, mid, end);
-    let pivotIndex = start;
+    swap(array, mid, rightBound);
+    let pivotIndex = leftBound;
 
-    for (let j = start; j < end; j++)
+    for (let j = leftBound; j < rightBound; j++)
     {
         if (array[j] < pivotValue)
         {
