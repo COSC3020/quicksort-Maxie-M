@@ -25,7 +25,7 @@ function partition(array, leftBound, rightBound)
             pivotIndex++;
         }
     }
-    swap(array, pivotIndex, end);
+    swap(array, pivotIndex, rightBound);
     return pivotIndex;
 }
 
