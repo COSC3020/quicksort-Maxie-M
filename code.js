@@ -11,7 +11,7 @@ function swap(array, indexA, indexB)
 
 function partition(array, leftBound, rightBound) 
 {
-    if (array.lngth < 2) 
+    if (array.length < 2) 
     {
         return array;
     }
